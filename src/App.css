@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+
+:root {
+  --secondary-clr: #939393;
+  --primary-accent-clr: #788cde;
+  --app-bg-clr: #173650;
+  --app-bg-clr2: #1f4869;
+}
+#appMountPoint {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--app-bg-clr2);
+}
+#app-container {
+  height: 90vh;
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 0 1.25em 0.1em rgba(255, 255, 255, 0.2);
+}
+
+.app-name {
+  position: absolute;
+  margin: 0.75em 0 0 1.2em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--secondary-clr);
+}
+
+.sidepanel {
+  height: 100%;
+  width: 17em;
+  background-color: #1f1f1fc9;
+  /* background-color: orange; */
+}
+
+.mainContent-container {
+  height: 100%;
+  flex-grow: 2;
+  background: #1a1b1c;
+}
+
+@media only screen and (max-width: 800px) {
+  .sidepanel {
+    display: none;
+  }
+  .app-name {
+    color: var(--primary-accent-clr);
+    /* margin-left: 1.3em; */
+  }
+}
