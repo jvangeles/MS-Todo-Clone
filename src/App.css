@@ -10,7 +10,7 @@ body {
   width: 3px;
 }
 ::-webkit-scrollbar-track {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.025);
 }
 ::-webkit-scrollbar-thumb {
   background-color: transparent;
@@ -63,8 +63,10 @@ body {
 
 .sidepanel--container {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   background-color: #1f1f1fd0;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
   overflow: hidden;
   flex-basis: 16.5em;
 }
@@ -74,7 +76,6 @@ body {
   --item-font-weight: 350;
   display: flex;
   flex-direction: column;
-  align-self: flex-end;
   overflow-x: visible;
   overflow-y: scroll;
   height: 70%;
@@ -86,6 +87,8 @@ body {
 }
 
 .sidepanel--item {
+  --task-name: attr(data-task-name);
+  --animation-dur: 125ms;
   position: relative;
   display: flex;
   overflow-x: visible;
@@ -95,18 +98,35 @@ body {
   font-weight: var(--item-font-weight);
   color: var(--item-font-clr);
 }
-.sidepanel--item:hover:active {
+/* .sidepanel--item:hover:active {
   transform: scale(0.975);
-}
+} */
 .sidepanel--item:active {
-  opacity: 0.8;
+  opacity: 0.75;
+}
+.sidepanel--item::before {
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  transform: scale(0.7);
+  transform-origin: right;
+  content: var(--task-name);
+  opacity: 0;
+  background-color: green;
+  transition: transform var(--animation-dur) ease-in,
+    opacity var(--animation-dur) ease-in;
+}
+.sidepanel--item:hover::before {
+  opacity: 1;
+  transform: scale(1);
 }
 .sidepanel--item::after {
   content: "";
   position: absolute;
   z-index: -1;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   height: 92.5%;
   width: 100%;
   background-color: white;
@@ -116,7 +136,7 @@ body {
   opacity: 0.075;
 }
 .sidepanel > .sidepanel--item:nth-child(1) {
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 .sidepanel--itemLabel {
   pointer-events: none;
@@ -136,7 +156,8 @@ body {
 
 @media only screen and (max-width: 800px) {
   .sidepanel--container {
-    display: none;
+    /* display: none; */
+    /* UNCOMMENT WHEN DONE */
   }
   .app-name {
     color: var(--primary-accent-clr);

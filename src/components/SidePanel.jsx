@@ -12,9 +12,21 @@ const SidePanel = () => {
         {/* TEST CODE BELOW - TO REPLACE */}
         {Array(20) /* Number of Test Items*/
           .fill(1)
-          .map((el) => (
-            <SidePanelItem />
+          .map((el, idx) => (
+            <SidePanelItem label={`Sample Task ${idx}`} />
           ))}
+      </div>
+      <div
+        style={{
+          display: "grid",
+          height: "50px",
+          width: "100%",
+          backgroundColor: "red",
+          textAlign: "center",
+          placeContent: "center",
+        }}
+      >
+        PUT INPUT COMPONENT HERE
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const SidePanelItem = ({ icon, label }) => {
   // }, [input])
 
   return (
-    <div className="sidepanel--item">
+    <div className="sidepanel--item" data-task-name={label}>
       {icon}
       <div className="sidepanel--itemLabel">
         <span>{label}</span>
@@ -21,10 +21,10 @@ const SidePanelItem = ({ icon, label }) => {
   );
 };
 
-// SidePanelItem.propTypes = {
-//   icon: PropTypes.element,
-//   label: PropTypes.string,
-// };
+SidePanelItem.propTypes = {
+  icon: PropTypes.element,
+  label: PropTypes.string,
+};
 
 SidePanelItem.defaultProps = {
   icon: <Hamburger />,
