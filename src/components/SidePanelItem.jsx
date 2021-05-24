@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Hamburger from "./Hamburger";
 
-const SidePanelItem = ({ icon, label }) => {
+const SidePanelItem = ({ icon, label, focusIndex }) => {
   // useEffect(() => {
   //   effect
   //   return () => {
@@ -12,7 +12,11 @@ const SidePanelItem = ({ icon, label }) => {
   // }, [input])
 
   return (
-    <div className="sidepanel--item" data-task-name={label}>
+    <div
+      className="sidepanel--item"
+      data-task-name={label}
+      tabIndex={focusIndex}
+    >
       {icon}
       <div className="sidepanel--itemLabel">
         <span>{label}</span>

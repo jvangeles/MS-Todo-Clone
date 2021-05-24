@@ -58,7 +58,7 @@ body {
   /* font-size: 0.7rem; */
   font-weight: 600;
   color: var(--secondary-clr);
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 
 .sidepanel--container {
@@ -84,6 +84,7 @@ body {
   border-top: var(--secondary-clr-500) solid 1px;
   /* background-color: orange; */
   color: white;
+  animation: slideInBottom 0.75s cubic-bezier(0.05, 0.69, 0, 1.01);
 }
 
 .sidepanel--item {
@@ -104,8 +105,9 @@ body {
 .sidepanel--item:active {
   opacity: 0.75;
 }
+/* UNCOMMENT TO ADD TOOLTIP POPUP */
 .sidepanel--item::before {
-  pointer-events: none;
+  /* pointer-events: none; */
   position: absolute;
   right: 0;
   transform: scale(0.7);
@@ -116,10 +118,12 @@ body {
   transition: transform var(--animation-dur) ease-in,
     opacity var(--animation-dur) ease-in;
 }
-.sidepanel--item:hover::before {
+.sidepanel--item:hover::before,
+.sidepanel--item:focus::before {
   opacity: 1;
   transform: scale(1);
 }
+
 .sidepanel--item::after {
   content: "";
   position: absolute;
@@ -132,15 +136,17 @@ body {
   background-color: white;
   opacity: 0;
 }
-.sidepanel--item:hover::after {
+.sidepanel--item:hover::after,
+.sidepanel--item:focus::after {
   opacity: 0.075;
 }
-.sidepanel > .sidepanel--item:nth-child(1) {
+/* .sidepanel > .sidepanel--item:nth-child(1) {
   margin-top: 0.5em;
-}
+} */
 .sidepanel--itemLabel {
-  pointer-events: none;
-  /* width: 10em; */
+  /* pointer-events: none; */
+  margin-right: auto;
+  width: 12em;
   text-overflow: ellipsis;
   overflow: hidden;
 }
@@ -162,5 +168,19 @@ body {
   .app-name {
     color: var(--primary-accent-clr);
     /* margin-left: 1.3em; */
+  }
+}
+
+@keyframes slideInBottom {
+  0% {
+    transform: translateY(100%) scaleY(1.5);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0%) scaleY(1);
+    opacity: 1;
   }
 }
