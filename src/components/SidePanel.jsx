@@ -1,4 +1,5 @@
 import React from "react";
+import FolderIcon from "./FolderIcon";
 import SidePanelItem from "./SidePanelItem";
 
 const SidePanel = () => {
@@ -15,6 +16,7 @@ const SidePanel = () => {
           .map((el, idx) => (
             <SidePanelItem label={`Sample Task ${idx}`} />
           ))}
+        <SidePanelItem icon={<FolderIcon />} />
       </div>
       <div
         style={{
@@ -22,7 +24,6 @@ const SidePanel = () => {
           height: "50px",
           width: "100%",
           backgroundColor: "red",
-          textAlign: "center",
           placeContent: "center",
         }}
       >

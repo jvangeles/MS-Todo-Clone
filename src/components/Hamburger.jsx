@@ -9,7 +9,7 @@ function Hamburger() {
       style={{
         display: "grid",
         placeItems: "center",
-        width: "fit-content",
+        width: "1.25em",
         marginRight: "1.5em",
       }}
     >
