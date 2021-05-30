@@ -70,16 +70,17 @@ body {
   overflow: hidden;
   flex-basis: 16.5em;
 }
-.sidepanel {
+.taskList {
   --item-font-size: 0.75rem;
   --item-font-clr: #d9d9d9;
   --item-font-weight: 350;
   display: flex;
+  flex: 0 0 75%;
   flex-direction: column;
   overflow-x: visible;
   overflow-y: scroll;
-  height: 70%;
-  width: 100%;
+  height: 75%;
+  /* width: 100%; */
   scroll-behavior: smooth;
   border-top: var(--secondary-clr-500) solid 1px;
   /* background-color: orange; */
@@ -87,7 +88,7 @@ body {
   animation: slideInBottom 0.75s cubic-bezier(0.05, 0.69, 0, 1.01);
 }
 
-.sidepanel--item {
+.todoItem {
   --task-name: attr(data-task-name);
   --animation-dur: 125ms;
   position: relative;
@@ -99,14 +100,14 @@ body {
   font-weight: var(--item-font-weight);
   color: var(--item-font-clr);
 }
-/* .sidepanel--item:hover:active {
+/* .todoItem:hover:active {
   transform: scale(0.975);
 } */
-.sidepanel--item:active {
+.todoItem:active {
   opacity: 0.75;
 }
 /* UNCOMMENT TO ADD TOOLTIP POPUP */
-.sidepanel--item::before {
+.todoItem::before {
   /* pointer-events: none; */
   position: absolute;
   right: 0;
@@ -118,13 +119,12 @@ body {
   transition: transform var(--animation-dur) ease-in,
     opacity var(--animation-dur) ease-in;
 }
-.sidepanel--item:hover::before,
-.sidepanel--item:focus::before {
+.todoItem:hover::before {
   opacity: 1;
   transform: scale(1);
 }
 
-.sidepanel--item::after {
+.todoItem::after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -136,21 +136,21 @@ body {
   background-color: white;
   opacity: 0;
 }
-.sidepanel--item:hover::after,
-.sidepanel--item:focus::after {
+.todoItem:hover::after,
+.todoItem:focus::after {
   opacity: 0.075;
 }
-/* .sidepanel > .sidepanel--item:nth-child(1) {
+/* .sidepanel > .todoItem:nth-child(1) {
   margin-top: 0.5em;
 } */
-.sidepanel--itemLabel {
+.todoItem--label {
   /* pointer-events: none; */
   margin-right: auto;
   width: 12em;
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.sidepanel--itemLabel > span {
+.todoItem--label > span {
   white-space: nowrap;
 }
 

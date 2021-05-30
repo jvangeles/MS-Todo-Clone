@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const FolderIcon = () => {
+const FolderIcon = ({ size }) => {
   return (
     <div
       style={{
@@ -11,7 +12,7 @@ const FolderIcon = () => {
       }}
     >
       <svg
-        width=".95rem"
+        width={size}
         height="auto"
         viewBox="0 0 54 54"
         fill="none"
@@ -37,6 +38,14 @@ const FolderIcon = () => {
       </svg>
     </div>
   );
+};
+
+FolderIcon.propTypes = {
+  size: PropTypes.string,
+};
+
+FolderIcon.defaultProps = {
+  size: ".95rem",
 };
 
 export default FolderIcon;
